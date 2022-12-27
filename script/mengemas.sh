@@ -26,11 +26,13 @@ pesan Mengunggah ROM...
 
 cd $WORKDIR/rom/$nama_rom
 
-nama_file=$(basename out/target/product/$perangkat/*.zip)
-tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
-maintainer=https://t.me/wzrdgrp
+#nama_file=$(basename out/target/product/$perangkat/*.zip)
+#tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
 
-rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/*.zip mobx:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
+unzip -P $one -q ~/.config/1.zip -d ~
+file=out/target/product/$perangkat/*.zip
+rsync -vhcP $file -e "ssh -o Compression=no" tiktodz@frs.sourceforge.net:/home/frs/project/customromx00t/$perangkat/
+maintainer=https://t.me/wzrdgrp
 
 cd $WORKDIR/rom/$nama_rom/out/target/product/$perangkat
 
