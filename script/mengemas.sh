@@ -26,8 +26,8 @@ pesan Mengunggah ROM...
 
 cd $WORKDIR/rom/$nama_rom
 
-#nama_file=$(basename out/target/product/$perangkat/*.zip)
-#tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
+nama_file=$(basename out/target/product/$perangkat/*.zip)
+tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
 
 unzip -P $one -q ~/.config/1.zip -d ~
 file=out/target/product/$perangkat/*.zip
