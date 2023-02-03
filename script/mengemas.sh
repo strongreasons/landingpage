@@ -28,11 +28,9 @@ cd $WORKDIR/rom/$nama_rom
 
 nama_file=$(basename out/target/product/$perangkat/*.zip)
 tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
-
-unzip -P $one -q ~/.config/1.zip -d ~
-file=out/target/product/$perangkat/*.zip
-rsync -vhcP $file -e "ssh -o Compression=no" tiktodz@frs.sourceforge.net:/home/frs/project/customromx00t/$perangkat/
 maintainer=https://t.me/wzrdgrp
+
+rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/DerpFest-13*.zip build:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
 
 cd $WORKDIR/rom/$nama_rom/out/target/product/$perangkat
 
