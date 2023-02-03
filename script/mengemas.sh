@@ -30,7 +30,7 @@ nama_file=$(basename out/target/product/$perangkat/*.zip)
 tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
 maintainer=https://t.me/wzrdgrp
 
-rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/DerpFest-13*.zip build:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
+rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/*.zip build:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
 
 cd $WORKDIR/rom/$nama_rom/out/target/product/$perangkat
 
